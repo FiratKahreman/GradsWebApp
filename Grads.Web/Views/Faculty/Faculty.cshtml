@@ -1,0 +1,69 @@
+﻿@{
+    ViewBag.Title = "Fakülteler";
+}
+
+<div class="dash_blog">
+    <div class="dash_blog_inner">
+        <div class="dash_head">
+            <h3><span><i class="fa fa-comments-o"></i> Gönderiler</span><span class="plus_green_bt"><a href="#">+</a></span></h3>
+        </div>
+
+        <div>
+        @foreach (var item in Model)
+            {
+                <tr>
+                    <td>@item.Id</td>
+                    <td>@item.FacultyName</td>
+                    <td>@item.Location</td>
+                    <td>@item.CreatedDate.ToShortDateString()</td>
+                    <td>
+                        <a asp-action="Update" asp-route-id="@item.Id" class="btn btn-dark">Update</a>
+                        <a asp-action="Delete" asp-route-id="@item.Id" class="btn btn-danger">Delete</a>
+                    </td>
+                </tr>
+            }
+        
+        </div>
+        <div class="msg_list_main">
+            <ul class="msg_list">
+                <li>
+                    <span><img src="~/dosyalar/images/layout_img/msg5.png" class="img-responsive" alt="#" /></span>
+                    <span>
+                        <span class="name_user"><i class="fa fa-graduation-cap"></i>Yavuz Oğuz</span>
+                        <span class="msg_user">Merhaba, Bilgisayar Mühendisliği öğrencisi olup bu yaz staj yapacak yer arayanlar bana ulaşabilir.</span>
+                        <span class="fa fa-comments-o">   15 Yorum</span>
+                        <span class="time_ago">15 dakika önce</span>
+                    </span>
+                </li>
+                <li>
+                    <span><img src="~/dosyalar/images/layout_img/people2.png" class="img-responsive" alt="#" /></span>
+                    <span>
+                        <span class="name_user">Ayşenur Dağdelen</span>
+                        <span class="msg_user">Orman Mühendisliği okuyorum. Devlet memuru olmak için nasıl bir yol izlemem gerekiyor? Orman Mühendisliği mezunu varsa cevaplayabilir mi?</span>
+                        <span class="fa fa-comments-o">   3 Yorum</span>
+                        <span class="time_ago">Dün</span>
+                    </span>
+                </li>
+                <li>
+                    <span><img src="~/dosyalar/images/layout_img/msg2.png" class="img-responsive" alt="#" /></span>
+                    <span>
+                        <span class="name_user">Oğuz Balcı</span>
+                        <span class="msg_user">Makine Mühendisi olarak çalışanlara birkaç soru sormak istiyorum. Bana ulaşır mısınız?</span>
+                        <span class="fa fa-comments-o">   6 Yorum</span>
+                        <span class="time_ago">3 gün önce</span>
+                    </span>
+                </li>
+                <li>
+                    <span><img src="~/dosyalar/images/layout_img/msg3.png" class="img-responsive" alt="#" /></span>
+                    <span>
+                        <span class="name_user"><i class="fa fa-graduation-cap"></i>Fırat Kahreman</span>
+                        <span class="msg_user">4. sınıf öğrencileri için yapacağım online seminere hepinizi bekliyorum.</span>
+                        <span class="fa fa-comments-o">   0 Yorum</span>
+                        <span class="time_ago">3 gün önce</span>
+                    </span>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>
+
