@@ -15,7 +15,9 @@ namespace GradsApp.Service.Mapping
         {
             CreateMap<SocialPost, CreatePostDTO>().ReverseMap();
             CreateMap<SocialComment, SocialCommentDTO>().ReverseMap();
-
+            CreateMap<UserProfile, UserProfileDTO>().ReverseMap();
+            CreateMap<Card, CardDTO>().ReverseMap();
+            CreateMap<UserProfile, SignUpDTO>().ReverseMap();
 
         }
     }

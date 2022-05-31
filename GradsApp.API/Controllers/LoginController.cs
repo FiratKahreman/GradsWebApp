@@ -7,7 +7,7 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace GradsApp.API.Controllers
 {
-    [Route("api/[controller]")]
+    [Route("api/[controller]/[action]")]
     [ApiController]
     public class LoginController : ControllerBase
     {
@@ -18,6 +18,15 @@ namespace GradsApp.API.Controllers
         {
             _mapper = mapper;
             _userProfileService = userProfileService;
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> SignUp(SignUpDTO signUpDTO)
+        {
+
+            var user = _mapper.Map<UserProfile>(signUpDTO);
+            await _userProfileService.SignUp(user);
+            return Ok();
         }
 
         [HttpPost]

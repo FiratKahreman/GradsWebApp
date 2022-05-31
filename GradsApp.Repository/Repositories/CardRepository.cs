@@ -8,14 +8,14 @@ using System.Threading.Tasks;
 
 namespace GradsApp.Repository.Repositories
 {
-    public class UserProfileRepository : GenericRepository<UserProfile>, IUserProfileRepository
+    public class CardRepository : GenericRepository<Card>, ICardRepository
     {
         private readonly AppDbContext _appDbContext;
-        public UserProfileRepository(AppDbContext appDbContext) : base(appDbContext)
+        public CardRepository(AppDbContext appDbContext) : base(appDbContext)
         {
             _appDbContext = appDbContext;
         }
 
-        
+
     }
 }

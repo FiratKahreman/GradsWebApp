@@ -43,6 +43,10 @@ builder.Services.AddScoped<ISocialCommentRepository, SocialCommentRepository>();
 builder.Services.AddScoped<IUserProfileService, UserProfileService>();
 builder.Services.AddScoped<IUserProfileRepository, UserProfileRepository>();
 
+builder.Services.AddScoped<ICardService, CardService>();
+builder.Services.AddScoped<ICardRepository, CardRepository>();
+
+
 builder.Services.AddAutoMapper(typeof(MapProfile));
 
 var app = builder.Build();
