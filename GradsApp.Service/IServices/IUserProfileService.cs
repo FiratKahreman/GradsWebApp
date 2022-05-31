@@ -8,9 +8,9 @@ using System.Threading.Tasks;
 
 namespace GradsApp.Service.IServices
 {
-    public interface ISocialPostService
+    public interface IUserProfileService
     {
-        public Task<List<SocialPostDTO>> GetAllPosts();
-        public Task<SocialPost> CreatePost(SocialPost post);
+        public Task<string> Login(LoginDTO loginDTO);
+
     }
 }

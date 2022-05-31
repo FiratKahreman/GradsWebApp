@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 
 namespace GradsApp.Core.DTOs
 {
-    public abstract class BaseDto
+    public class LoginDTO
     {
-        public int Id { get; set; }
-        public DateTime CreatedDate { get; set; } = DateTime.Now;
+        public string Password { get; set; }
+        public string Mail { get; set; }
     }
 }

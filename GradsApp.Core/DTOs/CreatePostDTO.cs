@@ -6,8 +6,10 @@ using System.Threading.Tasks;
 
 namespace GradsApp.Core.DTOs
 {
-    public class CreatePostDTO : BaseDto
+    public class CreatePostDTO
     {
-        public int ProfileId { get; set; }
+        public string PostText { get; set; }
+        public int PostProfileId { get; set; }
+        public int Likes { get; set; } = 0;
     }
 }

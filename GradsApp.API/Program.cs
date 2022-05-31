@@ -1,7 +1,9 @@
 using GradsApp.Core.Models;
 using GradsApp.Repository;
 using GradsApp.Repository.IRepositories;
+using GradsApp.Repository.IUnitOfWorks;
 using GradsApp.Repository.Repositories;
+using GradsApp.Repository.UnitOfWork;
 using GradsApp.Service.IServices;
 using GradsApp.Service.Mapping;
 using GradsApp.Service.Services;
@@ -27,12 +29,20 @@ builder.Services.AddDbContext<AppDbContext>(x =>
     });
 });
 
+builder.Services.AddScoped<IUnitOfWork, UnitOfWork>();
+
 builder.Services.AddScoped<IFacultyService, FacultyService>();
 builder.Services.AddScoped<IFacultyRepository, FacultyRepository>();
+
 builder.Services.AddScoped<ISocialPostService, SocialPostService>();
 builder.Services.AddScoped<ISocialPostRepository, SocialPostRepository>();
+
 builder.Services.AddScoped<ISocialCommentService, SocialCommentService>();
 builder.Services.AddScoped<ISocialCommentRepository, SocialCommentRepository>();
+
+builder.Services.AddScoped<IUserProfileService, UserProfileService>();
+builder.Services.AddScoped<IUserProfileRepository, UserProfileRepository>();
+
 builder.Services.AddAutoMapper(typeof(MapProfile));
 
 var app = builder.Build();

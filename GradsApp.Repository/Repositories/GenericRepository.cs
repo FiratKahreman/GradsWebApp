@@ -20,8 +20,7 @@ namespace GradsApp.Repository.Repositories
 
         public async Task CreateAsync(TEntity entity)
         {
-            await _appDbContext.Set<TEntity>().AddAsync(entity);
-            await _appDbContext.SaveChangesAsync();
+            await _appDbContext.Set<TEntity>().AddAsync(entity);         
         }
 
         public async Task<List<TEntity>> GetAllAsync()

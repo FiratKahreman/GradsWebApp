@@ -1,4 +1,5 @@
 ﻿using AutoMapper;
+using GradsApp.Core.DTOs;
 using GradsApp.Core.Models;
 using GradsApp.Service.IServices;
 using Microsoft.AspNetCore.Http;
@@ -35,12 +36,14 @@ namespace GradsApp.API.Controllers
             return Ok(list);
         }
 
-        //[HttpPost]
-        //public async Task<IActionResult> NewPost(SocialPost socialPost)
-        //{
-        //    //var newPost = _mapper.Map<SocialPost>(socialPost);
-        //    //await _socialPostService.CreatePost(newPost);
-        //    //return Ok(newPost);
-        //}
+        [HttpPost]
+        public async Task<IActionResult> NewPost(CreatePostDTO createPostDto)
+        {
+            var post = _mapper.Map<SocialPost>(createPostDto);
+
+            await _socialPostService.CreatePost(post);
+            
+            return Ok();
+        }
     }
 }
