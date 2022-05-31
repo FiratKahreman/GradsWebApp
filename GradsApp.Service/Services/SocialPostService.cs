@@ -1,4 +1,5 @@
-﻿using GradsApp.Core.Models;
+﻿using GradsApp.Core.DTOs;
+using GradsApp.Core.Models;
 using GradsApp.Repository.IRepositories;
 using GradsApp.Service.IServices;
 using System;
@@ -18,14 +19,15 @@ namespace GradsApp.Service.Services
             _socialPostRepository = socialPostRepository;
         }
 
-        public Task CreatePost(SocialPost post)
+        public async Task CreatePost(SocialPost post)
         {
-            return _socialPostRepository.CreateAsync(post);
+            var newPost = post;
+            await _socialPostRepository.CreateAsync(newPost);
         }
 
-        public async Task<List<SocialPost>> GetAllPosts()
+        public async Task<List<SocialPostDTO>> GetAllPosts()
         {
-            return await _socialPostRepository.GetAllAsync();
+            return await _socialPostRepository.GetAllPosts();
         }
     }
 }

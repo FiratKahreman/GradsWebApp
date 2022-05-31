@@ -13,10 +13,9 @@ namespace Grads.Web.Controllers
             _facultyAPIService = facultyAPIService;
         }
 
-        public async Task<IActionResult> Index()
-        {
-            
-            return View(await _facultyAPIService.GetFaculties());
+        public IActionResult Index()
+        {            
+            return View();
         }
     }
 }

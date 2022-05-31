@@ -1,4 +1,5 @@
-﻿using GradsApp.Core.Models;
+﻿using AutoMapper;
+using GradsApp.Core.Models;
 using GradsApp.Service.IServices;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
@@ -11,11 +12,13 @@ namespace GradsApp.API.Controllers
     {
         private readonly ISocialPostService _socialPostService;
         private readonly ISocialCommentService _socialCommentService;
+        private readonly IMapper _mapper;
 
-        public SocialController(ISocialCommentService socialCommentService, ISocialPostService socialPostService)
+        public SocialController(ISocialCommentService socialCommentService, ISocialPostService socialPostService, IMapper mapper)
         {
             _socialCommentService = socialCommentService;
             _socialPostService = socialPostService;
+            _mapper = mapper;
         }
 
         [HttpGet]
@@ -32,11 +35,12 @@ namespace GradsApp.API.Controllers
             return Ok(list);
         }
 
-        [HttpPost]
-        public async Task<IActionResult> NewPost(SocialPost socialPost)
-        {
-            await _socialPostService.CreatePost(socialPost);
-            return Ok();
-        }
+        //[HttpPost]
+        //public async Task<IActionResult> NewPost(SocialPost socialPost)
+        //{
+        //    //var newPost = _mapper.Map<SocialPost>(socialPost);
+        //    //await _socialPostService.CreatePost(newPost);
+        //    //return Ok(newPost);
+        //}
     }
 }

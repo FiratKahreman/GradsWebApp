@@ -1,4 +1,5 @@
-﻿using GradsApp.Core.Models;
+﻿using GradsApp.Core.DTOs;
+using GradsApp.Core.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,6 +10,6 @@ namespace GradsApp.Service.IServices
 {
     public interface IFacultyService
     {
-        public Task<List<Faculty>> GetAll();
+        public Task<List<FacultyWithProgramDTO>> GetAll();
     }
 }

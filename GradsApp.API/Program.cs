@@ -3,10 +3,12 @@ using GradsApp.Repository;
 using GradsApp.Repository.IRepositories;
 using GradsApp.Repository.Repositories;
 using GradsApp.Service.IServices;
+using GradsApp.Service.Mapping;
 using GradsApp.Service.Services;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
 using System.Reflection;
+
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -27,6 +29,11 @@ builder.Services.AddDbContext<AppDbContext>(x =>
 
 builder.Services.AddScoped<IFacultyService, FacultyService>();
 builder.Services.AddScoped<IFacultyRepository, FacultyRepository>();
+builder.Services.AddScoped<ISocialPostService, SocialPostService>();
+builder.Services.AddScoped<ISocialPostRepository, SocialPostRepository>();
+builder.Services.AddScoped<ISocialCommentService, SocialCommentService>();
+builder.Services.AddScoped<ISocialCommentRepository, SocialCommentRepository>();
+builder.Services.AddAutoMapper(typeof(MapProfile));
 
 var app = builder.Build();
 

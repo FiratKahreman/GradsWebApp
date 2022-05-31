@@ -28,10 +28,10 @@ namespace GradsApp.Repository
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
 
-            //modelBuilder.Entity<FacultyProgram>()
-            //.HasOne<Faculty>(s => s.Faculty)
-            //.WithMany(g => g.FacultyPrograms)
-            //.HasForeignKey(s => s.FacultyId);
+            modelBuilder.Entity<FacultyProgram>()
+            .HasOne<Faculty>(s => s.Faculty)
+            .WithMany(g => g.FacultyPrograms)
+            .HasForeignKey(s => s.FacultyId);
 
 
             ////modelBuilder.Entity<SocialComment>()

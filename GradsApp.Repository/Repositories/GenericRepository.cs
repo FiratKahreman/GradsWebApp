@@ -34,7 +34,7 @@ namespace GradsApp.Repository.Repositories
             return await _appDbContext.Set<TEntity>().AsNoTracking().SingleOrDefaultAsync(filter);
         }
 
-        public async Task<TEntity?> GetByIdAsync(object id)
+        public async Task<TEntity?> GetByIdAsync(int id)
         {
             return await _appDbContext.Set<TEntity>().FindAsync(id);
         }

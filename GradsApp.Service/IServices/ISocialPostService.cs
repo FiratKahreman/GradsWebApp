@@ -1,4 +1,5 @@
-﻿using GradsApp.Core.Models;
+﻿using GradsApp.Core.DTOs;
+using GradsApp.Core.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,7 +10,7 @@ namespace GradsApp.Service.IServices
 {
     public interface ISocialPostService
     {
-        public Task<List<SocialPost>> GetAllPosts();
+        public Task<List<SocialPostDTO>> GetAllPosts();
         public Task CreatePost(SocialPost post);
     }
 }
