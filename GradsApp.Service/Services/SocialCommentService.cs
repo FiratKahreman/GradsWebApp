@@ -1,5 +1,7 @@
-﻿using GradsApp.Core.Models;
+﻿using GradsApp.Core.DTOs;
+using GradsApp.Core.Models;
 using GradsApp.Repository.IRepositories;
+using GradsApp.Repository.IUnitOfWorks;
 using GradsApp.Service.IServices;
 using System;
 using System.Collections.Generic;
@@ -11,21 +13,25 @@ namespace GradsApp.Service.Services
 {
     public class SocialCommentService : ISocialCommentService
     {
-        public readonly ISocialCommentRepository _socialCommentRepository;
+        private readonly ISocialCommentRepository _socialCommentRepository;
+        private readonly IUnitOfWork _unitOfWork;
 
-        public SocialCommentService(ISocialCommentRepository socialCommentRepository)
+        public SocialCommentService(ISocialCommentRepository socialCommentRepository, IUnitOfWork unitOfWork)
         {
             _socialCommentRepository = socialCommentRepository;
+            _unitOfWork = unitOfWork;
         }
 
-        public Task CreatePost(SocialComment comment)
+        public Task CreateComment(SocialComment comment)
         {
-            return _socialCommentRepository.CreateAsync(comment);
+            _socialCommentRepository.CreateAsync(comment);
+            _unitOfWork.Commit();
+            return Task.CompletedTask;
         }
 
-        public async Task<List<SocialComment>> GetAll()
+        public async Task<List<SocialCommentDTO>> GetCommentByPost(int postId)
         {
-            return await _socialCommentRepository.GetAllAsync();
+            return await _socialCommentRepository.GetCommentById(postId);
         }
     }
 }

@@ -4,16 +4,12 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace GradsApp.Core.Models
+namespace GradsApp.Core.DTOs
 {
-    public class SocialComment : BaseEntity
+    public class SocialCommentDTO
     {
         public string CommentText { get; set; }
-        public int PostId { get; set; } = 0;
+        public int PostId { get; set; }
         public int CommentProfileId { get; set; }
-
-
-        public SocialPost SocialPost { get; set; }
-        public UserProfile CommentProfile { get; set; }
     }
 }

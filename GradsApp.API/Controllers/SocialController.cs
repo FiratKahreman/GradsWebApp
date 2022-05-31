@@ -29,11 +29,19 @@ namespace GradsApp.API.Controllers
             return Ok(list);
         }
 
-        [HttpGet]
-        public async Task<IActionResult> GetComments()
+        [HttpGet("{postId}")]
+        public async Task<IActionResult> GetComments(int postId)
         {
-            var list = await _socialCommentService.GetAll();
+            var list = await _socialCommentService.GetCommentByPost(postId);
             return Ok(list);
+        }
+        [HttpPost]
+        public async Task<IActionResult> NewComment(SocialCommentDTO socialCommentDTO)
+        {
+
+            var comment = _mapper.Map<SocialComment>(socialCommentDTO);
+            await _socialCommentService.CreateComment(comment);
+            return Ok();
         }
 
         [HttpPost]

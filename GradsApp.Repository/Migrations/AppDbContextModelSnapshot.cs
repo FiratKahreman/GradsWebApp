@@ -56,7 +56,7 @@ namespace GradsApp.Repository.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Cards");
+                    b.ToTable("Cards", (string)null);
                 });
 
             modelBuilder.Entity("GradsApp.Core.Models.Company", b =>
@@ -78,7 +78,7 @@ namespace GradsApp.Repository.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Companies");
+                    b.ToTable("Companies", (string)null);
                 });
 
             modelBuilder.Entity("GradsApp.Core.Models.Faculty", b =>
@@ -103,7 +103,7 @@ namespace GradsApp.Repository.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Faculties");
+                    b.ToTable("Faculties", (string)null);
                 });
 
             modelBuilder.Entity("GradsApp.Core.Models.FacultyProgram", b =>
@@ -130,7 +130,7 @@ namespace GradsApp.Repository.Migrations
 
                     b.HasIndex("FacultyId");
 
-                    b.ToTable("FacultyPrograms");
+                    b.ToTable("FacultyPrograms", (string)null);
                 });
 
             modelBuilder.Entity("GradsApp.Core.Models.Picture", b =>
@@ -155,7 +155,7 @@ namespace GradsApp.Repository.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Pictures");
+                    b.ToTable("Pictures", (string)null);
                 });
 
             modelBuilder.Entity("GradsApp.Core.Models.SocialComment", b =>
@@ -190,7 +190,7 @@ namespace GradsApp.Repository.Migrations
 
                     b.HasIndex("SocialPostId");
 
-                    b.ToTable("SocialComments");
+                    b.ToTable("SocialComments", (string)null);
                 });
 
             modelBuilder.Entity("GradsApp.Core.Models.SocialPost", b =>
@@ -220,7 +220,7 @@ namespace GradsApp.Repository.Migrations
 
                     b.HasIndex("PostProfileId");
 
-                    b.ToTable("SocialPosts");
+                    b.ToTable("SocialPosts", (string)null);
                 });
 
             modelBuilder.Entity("GradsApp.Core.Models.UserProfile", b =>
@@ -293,7 +293,7 @@ namespace GradsApp.Repository.Migrations
 
                     b.HasIndex("FacultyProgramId");
 
-                    b.ToTable("UserProfiles");
+                    b.ToTable("UserProfiles", (string)null);
                 });
 
             modelBuilder.Entity("GradsApp.Core.Models.FacultyProgram", b =>
