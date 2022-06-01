@@ -8,6 +8,10 @@ builder.Services.AddHttpClient<FacultyAPIService>(opt =>
 {
     opt.BaseAddress = new Uri(builder.Configuration["BaseUrl"]);
 });
+builder.Services.AddHttpClient<ProfileAPIService>(opt =>
+{
+    opt.BaseAddress = new Uri(builder.Configuration["BaseUrl"]);
+});
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.

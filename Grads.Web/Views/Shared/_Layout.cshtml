@@ -1,49 +1,137 @@
-﻿<!DOCTYPE html>
-<html lang="en">
+﻿
+<!DOCTYPE html>
+
+<html>
 <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>@ViewData["Title"] - Grads.Web</title>
-    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
-    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
-    <link rel="stylesheet" href="~/Grads.Web.styles.css" asp-append-version="true" />
+    <meta name="viewport" content="width=device-width" />
+    
+    <title>@ViewBag.Title</title>
+
+    <link rel="icon" href="~/dosyalar/images/fevicon.png" type="image/png" />
+    <!-- bootstrap css -->
+    <link rel="stylesheet" href="~/dosyalar/css/bootstrap.min.css" type="text/css"/>
+    <!-- site css -->
+    <link rel="stylesheet" href="~/dosyalar/css/style.css" type="text/css"/>
+    <!-- responsive css -->
+    <link rel="stylesheet" href="~/dosyalar/css/responsive.css" type="text/css"/>
+    <!-- renk css -->
+    <link rel="stylesheet" href="~/dosyalar/css/colors.css" type="text/css"/>
+    <!-- select bootstrap -->
+    <link rel="stylesheet" href="~/dosyalar/css/bootstrap-select.css" type="text/css"/>
+    <!-- scrollbar css -->
+    <link rel="stylesheet" href="~/dosyalar/css/perfect-scrollbar.css" type="text/css"/>
+    <!-- custom css -->
+    <link rel="stylesheet" href="~/dosyalar/css/custom.css" type="text/css"/>
 </head>
-<body>
-    <header>
-        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
-            <div class="container-fluid">
-                <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">Grads.Web</a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
-                        aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
-                    <ul class="navbar-nav flex-grow-1">
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
-                        </li>
+<body class="bg-dark">
+    <div class="full_container">
+        <div class="inner_container">
+            
+            <!-- Yan bar  -->
+            <nav id="sidebar">
+                <div class="sidebar_blog_1">
+                    <div class="sidebar-header">
+                        <div class="logo_section">
+                            <a href="index.html"><img class="logo_icon img-responsive" src="~/dosyalar/images/logo/ktulogobeyaz.jpg" alt="#" /></a>
+                        </div>
+                    </div>  
+                        <div class="img-responsive"><img class="img-responsive" src="~/dosyalar/images/logo/ktubanner.png" alt="#" /></div>                            
+                </div>
+                <div class="sidebar_blog_2">
+                    <h4>KTÜ Mezun Sistemi</h4>
+                    <ul class="list-unstyled components">
+                        <li><a href="~/Sosyal/Index"><i class="fa fa-paper-plane white_color"></i> <span>Sosyal</span></a></li>
+                        <li><a href="~/Harita/Index"><i class="fa fa-map white_color"></i> <span>Harita</span></a></li>
+                        <li><a href="~/MezunKart/Index"><i class="fa fa-credit-card white_color"></i> <span>Mezun Kart</span></a></li>                                                                                     
+                        <li><a href="settings.html"><i class="fa fa-cog white_color"></i> <span>Ayarlar</span></a></li>
                     </ul>
                 </div>
+            </nav>
+            <!-- yan bar -->
+
+            <!-- sağ taraf -->
+            <div id="content">
+                <!-- Üst bar -->
+                <div class="topbar">
+                    <nav class="navbar navbar-expand-lg navbar-light">
+                        <div class="full">
+                            <button type="button" id="sidebarCollapse" class="sidebar_toggle"><i class="fa fa-bars"></i></button>
+                            
+                            <div class="right_topbar">
+                                <div class="icon_info">
+                                    <ul>
+                                        <li><a href="#"><i class="fa fa-bell-o"></i><span class="badge">2</span></a></li>
+                                        <li><a href="#"><i class="fa fa-question-circle"></i></a></li>
+                                        <li><a href="#"><i class="fa fa-envelope-o"></i><span class="badge">3</span></a></li>
+                                    </ul>
+                                    <ul class="user_profile_dd">
+                                        <li>
+                                            <a class="dropdown-toggle" data-toggle="dropdown"><img class="img-responsive rounded-circle" src="~/dosyalar/images/layout_img/user_img.jpg" alt="#" /><span class="name_user">Zafer Yavuz</span></a>
+                                            <div class="dropdown-menu">
+                                                <a class="dropdown-item" href="#">Profilim</a>
+                                                <a class="dropdown-item" href="#">Ayarlar</a>
+                                                <a class="dropdown-item" href="#">Yardım</a>
+                                                <a class="dropdown-item" href="~/Giris/Giris"><span>Çıkış Yap</span> <i class="fa fa-sign-out"></i></a>
+                                            </div>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </nav>
+                </div>
+                <!-- üst bar -->
+                
+    <!-- içerik -->
+                <div class="midde_cont">
+                    <div class="container-fluid">
+                        <div class="row column_title">
+                            <div class="col-md-12">
+                                <div class="page_title">
+                                    <h2>@ViewBag.Title</h2>
+                                </div>
+                            </div>
+                        </div>
+                        @RenderBody()                          
+                        </div>
+                        
+                    </div>
+                    <!-- footer -->
+                    <div class="container-fluid">
+                        <div class="footer">
+                            <p>
+                                Karadeniz Teknik Üniversitesi Mezun Sistemi  <b>2022</b>
+                            </p>
+                        </div>
+                    </div>
+                
+                <!-- içerik -->
             </div>
-        </nav>
-    </header>
-    <div class="container">
-        <main role="main" class="pb-3">
-            @RenderBody()
-        </main>
+        </div>
     </div>
 
-    <footer class="border-top footer text-muted">
-        <div class="container">
-            &copy; 2022 - Grads.Web - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
-        </div>
-    </footer>
-    <script src="~/lib/jquery/dist/jquery.min.js"></script>
-    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="~/js/site.js" asp-append-version="true"></script>
-    @await RenderSectionAsync("Scripts", required: false)
+    <!-- jQuery -->
+    <script src="~/dosyalar/js/jquery.min.js"></script>
+    <script src="~/dosyalar/js/popper.min.js"></script>
+    <script src="~/dosyalar/js/bootstrap.min.js"></script>
+    <!-- animasyonlar -->
+    <script src="~/dosyalar/js/animate.js"></script>
+    <!-- bootstrap select -->
+    <script src="~/dosyalar/js/bootstrap-select.js"></script>
+    <!-- owl carousel -->
+    <script src="~/dosyalar/js/owl.carousel.js"></script>
+    <!-- chart js -->
+    <script src="~/dosyalar/js/Chart.min.js"></script>
+    <script src="~/dosyalar/js/Chart.bundle.min.js"></script>
+    <script src="~/dosyalar/js/utils.js"></script>
+    <script src="~/dosyalar/js/analyser.js"></script>
+    <!-- scrollbar -->
+    <script src="~/dosyalar/js/perfect-scrollbar.min.js"></script>
+    <script>
+        var ps = new PerfectScrollbar('#sidebar');
+    </script>
+    <!-- js -->
+    <script src="~/dosyalar/js/chart_custom_style1.js"></script>
+    <script src="~/dosyalar/js/custom.js"></script>
 </body>
 </html>

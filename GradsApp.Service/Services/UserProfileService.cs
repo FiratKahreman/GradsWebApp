@@ -74,7 +74,10 @@ namespace GradsApp.Service.Services
         public async Task<UserProfileDTO> GetProfileById(int id)
         {
             var userResponse = await _userProfileRepository.GetByFilterAsync(x => x.Id == id);
-            return _mapper.Map<UserProfileDTO>(userResponse);
+            
+            var userDto = _mapper.Map<UserProfileDTO>(userResponse);
+            Console.WriteLine(userDto.FirstName);
+            return userDto;
 
         }
     }

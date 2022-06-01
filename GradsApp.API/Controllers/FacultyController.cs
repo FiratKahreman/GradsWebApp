@@ -18,13 +18,12 @@ namespace GradsApp.API.Controllers
         }
 
         // GET: api/
-        [Authorize]
         [HttpGet]
         public async Task<IActionResult> Get()
         {
             var response = await _facultyService.GetAll();
-            var list = JsonConvert.SerializeObject(response);
-            return Ok(list);
+            /*var list = JsonConvert.SerializeObject(response)*/;
+            return Ok(response);
         }
 
        

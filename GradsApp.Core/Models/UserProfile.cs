@@ -22,7 +22,7 @@ namespace GradsApp.Core.Models
         public int? CardId { get; set; }
         public string Token { get; set; }
         public ICollection<SocialPost> SocialPosts { get; set; }
-        public ICollection<SocialComment> SocialComments { get; set; }        
+        public ICollection<SocialComment> SocialComments { get; set; }
         public FacultyProgram FacultyProgram { get; set; }
         public Card? ProfileCard { get; set; }
 

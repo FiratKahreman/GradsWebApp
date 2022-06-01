@@ -1,4 +1,5 @@
-﻿using GradsApp.Core.Models;
+﻿using GradsApp.Core.DTOs;
+using GradsApp.Core.Models;
 
 namespace Grads.Web.Services
 {
@@ -11,10 +12,11 @@ namespace Grads.Web.Services
             _httpClient = httpClient;
         }
 
-        public async Task<List<Faculty>> GetFaculties()
+        public async Task<List<FacultyWithProgramDTO>> GetFaculties()
         {
-            var response = await _httpClient.GetFromJsonAsync<List<Faculty>>("faculty");
-            return response.ToList();
+            var response = await _httpClient.GetFromJsonAsync<List<FacultyWithProgramDTO>>("Faculty");
+            Console.WriteLine(response);
+            return response;
         }
     }
 }

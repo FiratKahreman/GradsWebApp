@@ -1,6 +1,7 @@
 ﻿using GradsApp.Service.IServices;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using GradsApp.Core.DTOs;
 
 namespace GradsApp.API.Controllers
 {
@@ -19,6 +20,7 @@ namespace GradsApp.API.Controllers
         public async Task<IActionResult> GetProfile(int id)
         {
             var result =  await _userProfileService.GetProfileById(id);
+            
             if (result == null)
                 return NotFound();
             return Ok(result);
