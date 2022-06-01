@@ -14,7 +14,6 @@ namespace GradsApp.Core.DTOs
         public bool IsGrad { get; set; }
         public string Phone { get; set; }
         public string Mail { get; set; }
-        public char Gender { get; set; }
         public int PictureId { get; set; } = 1;
         public DateTime? GraduationDate { get; set; }
         public bool IsWorking { get; set; }

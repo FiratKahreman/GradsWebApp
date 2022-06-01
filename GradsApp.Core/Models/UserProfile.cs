@@ -14,13 +14,13 @@ namespace GradsApp.Core.Models
         public bool IsGrad { get; set; }        
         public string Phone { get; set; }
         public string Mail { get; set; }
-        public char Gender { get; set; }
         public int PictureId { get; set; }
         public DateTime? GraduationDate { get; set; }
         public bool IsWorking { get; set; }
         public bool GotCard { get; set; }
         public string GradType { get; set; }
         public int? CardId { get; set; }
+        public string Token { get; set; }
         public ICollection<SocialPost> SocialPosts { get; set; }
         public ICollection<SocialComment> SocialComments { get; set; }        
         public FacultyProgram FacultyProgram { get; set; }

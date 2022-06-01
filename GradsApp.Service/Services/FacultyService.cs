@@ -23,6 +23,7 @@ namespace GradsApp.Service.Services
             _mapper = mapper;
         }
 
+
         public async Task<List<FacultyWithProgramDTO>> GetAll()
         {
             return await _facultyRepository.GetAllWithFaculty();

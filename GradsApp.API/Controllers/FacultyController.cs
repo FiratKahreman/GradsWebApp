@@ -1,4 +1,5 @@
 ﻿using GradsApp.Service.IServices;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Newtonsoft.Json;
@@ -17,6 +18,7 @@ namespace GradsApp.API.Controllers
         }
 
         // GET: api/
+        [Authorize]
         [HttpGet]
         public async Task<IActionResult> Get()
         {
