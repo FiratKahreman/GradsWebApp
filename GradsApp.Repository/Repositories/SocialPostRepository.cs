@@ -33,7 +33,8 @@ namespace GradsApp.Repository.Repositories
                                                                    Likes = b.Likes,
                                                                    PostText = b.PostText,
                                                                    PostProfileId = b.PostProfileId,
-                                                                   CreatedDate = b.CreatedDate
+                                                                   CreatedDate = b.CreatedDate,
+                                                                   PostTitle = b.PostTitle
                                                                    
                                                                }).ToList();
             return socialPost;

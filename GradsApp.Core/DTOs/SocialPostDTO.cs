@@ -11,6 +11,7 @@ namespace GradsApp.Core.DTOs
         public string Name { get; set; }
         public string Surname { get; set; }
         public bool IsGrad { get; set; }
+        public string PostTitle { get; set; }
         public string PostText { get; set; }
         public int Likes { get; set; }
         public int PostProfileId { get; set; }

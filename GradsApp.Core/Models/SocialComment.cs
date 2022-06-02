@@ -9,7 +9,7 @@ namespace GradsApp.Core.Models
     public class SocialComment : BaseEntity
     {
         public string CommentText { get; set; }
-        public int PostId { get; set; } = 0;
+        public int PostId { get; set; }
         public int CommentProfileId { get; set; }
 
 

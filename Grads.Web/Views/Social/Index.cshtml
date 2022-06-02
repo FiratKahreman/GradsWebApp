@@ -47,7 +47,7 @@
                             <div class="tab-pane fade show active" id="posts" role="tabpanel" aria-labelledby="posts-tab">
                                 <div class="form-group">
                                     <label class="sr-only" for="message">post</label>
-                                    <textarea class="form-control" id="message" rows="3" placeholder="What are you thinking?"></textarea>
+                                    <textarea class="form-control" id="message" rows="3" placeholder="What are you thinking?">  </textarea>
                                 </div>
 
                             </div>
@@ -117,7 +117,7 @@
                     <div class="card-body">
                         <div class="text-muted h7 mb-2"> <i class="fa fa-clock-o"></i> @item.CreatedDate.ToShortDateString()</div>
                         <a class="card-link" href="#">
-                            <h5 class="card-title">@item.PostText.Split('.')[0]</h5>
+                            <h5 class="card-title">@item.PostTitle</h5>
                         </a>
 
                         <p class="card-text">

@@ -1,5 +1,7 @@
 ﻿using Grads.Web.Services;
+using GradsApp.Core.DTOs;
 using Microsoft.AspNetCore.Mvc;
+using System.Web.Providers.Entities;
 
 namespace Grads.Web.Controllers
 {
@@ -16,6 +18,12 @@ namespace Grads.Web.Controllers
         {
             var posts = await _socialAPIService.GetPosts();
             return View(posts);
+        }
+
+        public async Task<IActionResult> NewPost(CreatePostDTO createPostDto)
+        {
+            _socialAPIService.NewPost(createPostDto);
+            return Ok();
         }
     }
 }

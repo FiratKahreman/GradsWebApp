@@ -2,6 +2,7 @@
 using GradsApp.Core.DTOs;
 using GradsApp.Core.Models;
 using GradsApp.Service.IServices;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
@@ -23,6 +24,7 @@ namespace GradsApp.API.Controllers
         }
 
         [HttpGet]
+        [Authorize]
         public async Task<IActionResult> GetPosts()
         {
             var list = await _socialPostService.GetAllPosts();

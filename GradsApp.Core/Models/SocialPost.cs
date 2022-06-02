@@ -8,6 +8,7 @@ namespace GradsApp.Core.Models
 { 
     public class SocialPost : BaseEntity
     {
+        public string PostTitle { get; set; }
         public string PostText { get; set; }
         public int Likes { get; set; }
         public int PostProfileId { get; set; }

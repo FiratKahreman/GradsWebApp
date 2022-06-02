@@ -16,7 +16,7 @@ namespace GradsApp.API.Controllers
         }
 
         [HttpGet("{id}")]
-        public async Task<IActionResult> GetProfile(int id)
+        public async Task<IActionResult> GetCard(int id)
         {
             var result = await _cardService.GetCardById(id);
             if (result == null)
