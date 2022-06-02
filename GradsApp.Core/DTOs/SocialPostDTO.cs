@@ -14,5 +14,6 @@ namespace GradsApp.Core.DTOs
         public string PostText { get; set; }
         public int Likes { get; set; }
         public int PostProfileId { get; set; }
+        public DateTime CreatedDate { get; set; }
     }
 }

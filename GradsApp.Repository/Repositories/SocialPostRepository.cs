@@ -32,7 +32,9 @@ namespace GradsApp.Repository.Repositories
                                                                    IsGrad = a.IsGrad,
                                                                    Likes = b.Likes,
                                                                    PostText = b.PostText,
-                                                                   PostProfileId = b.PostProfileId
+                                                                   PostProfileId = b.PostProfileId,
+                                                                   CreatedDate = b.CreatedDate
+                                                                   
                                                                }).ToList();
             return socialPost;
         }

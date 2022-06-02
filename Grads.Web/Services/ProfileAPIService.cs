@@ -14,7 +14,7 @@ namespace Grads.Web.Services
 
         public async Task<UserProfileDTO> GetProfile(int id)
         {
-            var profile = await _httpClient.GetFromJsonAsync<UserProfileDTO>("UserProfile/1");
+            var profile = await _httpClient.GetFromJsonAsync<UserProfileDTO>($"UserProfile/{id}");
             Console.WriteLine(profile.FirstName);
             return profile;
         }
