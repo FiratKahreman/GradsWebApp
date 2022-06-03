@@ -24,7 +24,6 @@ namespace GradsApp.API.Controllers
         }
 
         [HttpGet]
-        [Authorize]
         public async Task<IActionResult> GetPosts()
         {
             var list = await _socialPostService.GetAllPosts();
