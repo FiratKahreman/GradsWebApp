@@ -1,36 +1,83 @@
 ﻿@using GradsApp.Core.DTOs
 @model UserProfileDTO
 @{
-    ViewBag.Title = "Profile";
+    ViewBag.Title = "Profilim";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<table class="table table-striped table-hover table-light">
-    <thead>
-        <tr>
-            <th>#</th>
-            <th>İsim</th>
-            <th>Mail</th>
-            <th>Fakülte</th>
-        </tr>
-    </thead>
-    <tbody>
-        
-        {
-            
-            {
-                <tr>
-                    <td></td>
-                    <td>@Model.FirstName @Model.LastName</td>
-                    <td>@Model.Mail</td>
-                    <td>@Model.GradType</td>             
-                    
-                </tr>
-            }
-                
-        }   
-        
-        
+<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
+<link rel="stylesheet" href="~/css/ProfilePage.css" type="text/css"/>
+<div class="container bootstrap snippets bootdey">
+<div class="row">
+  <div class="profile-nav col-md-3">
+      <div class="panel">
+          <div class="user-heading round">
+              <a href="#">
+                  <img src="https://bootdey.com/img/Content/avatar/avatar3.png" alt="">
+              </a>
 
-        </tbody>
-</table>
+              <h1>@Model.FirstName @Model.LastName</h1>
+              <p>@Model.Mail</p>
+          </div>
+
+          <ul class="nav nav-pills nav-stacked">              
+              <li><a href="#"> <i class="fa fa-edit"></i> Profili Düzenle</a></li>
+          </ul>
+      </div>
+  </div>
+  <div class="profile-info col-md-9">
+      <div class="panel">
+          
+      </div>
+      <div class="panel">
+          
+          <div class="panel-body bio-graph-info">
+              <div class="row">
+                  <div class="bio-row">
+                      <p><span>İsim </span>: @Model.FirstName</p>
+                  </div>
+                  <div class="bio-row">
+                      <p><span>Soyisim </span>: @Model.LastName</p>
+                  </div>
+                  <div class="bio-row">
+                      <p><span>Mail </span>: @Model.Mail</p>
+                  </div>
+                  <div class="bio-row">
+                      <p><span>Mezuniyet Tarihi </span>: @Model.GraduationDate</p>
+                  </div>
+                  <div class="bio-row">
+                      <p><span>Eğitim Durumu </span>: @(Model.IsGrad == true? "Mezun" : "Öğrenci")</p>
+                  </div>
+                  <div class="bio-row">
+                      <p><span>Çalışma Durumu </span>: @(Model.IsWorking == true? "Çalışıyor" : "Çalışmıyor")</p>
+                  </div>
+                  <div class="bio-row">
+                      <p><span>Mezun Kart Durumu </span>: @(Model.GotCard == true? "Aktif" : "Pasif")</p>
+                  </div>
+              </div>
+          </div>
+      </div>
+@*      
+      <div>
+          @foreach
+          <div class="row">
+              <div class="col-md-6">
+                  <div class="panel">
+                      <div class="panel-body">
+                          <div class="bio-chart">
+                              <div style="display:inline;width:100px;height:100px;"><canvas width="100" height="100px"></canvas><input class="knob" data-width="100" data-height="100" data-displayprevious="true" data-thickness=".2" value="35" data-fgcolor="#e06b7d" data-bgcolor="#e8e8e8" style="width: 54px; height: 33px; position: absolute; vertical-align: middle; margin-top: 33px; margin-left: -77px; border: 0px; font-weight: bold; font-style: normal; font-variant: normal; font-stretch: normal; font-size: 20px; line-height: normal; font-family: Arial; text-align: center; color: rgb(224, 107, 125); padding: 0px; -webkit-appearance: none; background: none;"></div>
+                          </div>
+                          <div class="bio-desk">
+                              <h4 class="red">Envato Website</h4>
+                              <p>Started : 15 July</p>
+                              <p>Deadline : 15 August</p>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+              
+          </div>
+      </div>*@
+  </div>
+</div>
+</div>
