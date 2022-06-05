@@ -1,4 +1,5 @@
-﻿using GradsApp.Repository.IRepositories;
+﻿using GradsApp.Core.Models;
+using GradsApp.Repository.IRepositories;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
@@ -41,13 +42,11 @@ namespace GradsApp.Repository.Repositories
         public async Task RemoveAsync(TEntity entity)
         {
             _appDbContext.Set<TEntity>().Remove(entity);
-            await _appDbContext.SaveChangesAsync();
         }
 
         public async Task UpdateAsync(TEntity entity)
         {
             _appDbContext.Set<TEntity>().Update(entity);
-            await _appDbContext.SaveChangesAsync();
         }
     }
 }

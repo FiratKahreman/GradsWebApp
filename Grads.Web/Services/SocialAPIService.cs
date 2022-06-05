@@ -21,5 +21,10 @@ namespace Grads.Web.Services
         {            
             var response = await _httpClient.PostAsJsonAsync<CreatePostDTO>("Social/NewPost", post);
         }
+
+        public async void NewComment(SocialCommentDTO socialCommentDTO)
+        {
+            var response = await _httpClient.PostAsJsonAsync<SocialCommentDTO>("Social/NewComment", socialCommentDTO);
+        }
     }
 }

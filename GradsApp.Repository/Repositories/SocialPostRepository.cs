@@ -27,6 +27,7 @@ namespace GradsApp.Repository.Repositories
 
                                                                select new SocialPostDTO
                                                                {
+                                                                   SocialPostId = b.Id,
                                                                    Name = a.FirstName,
                                                                    Surname = a.LastName,
                                                                    IsGrad = a.IsGrad,

@@ -25,5 +25,11 @@ namespace Grads.Web.Controllers
             _socialAPIService.NewPost(createPostDto);
             return Ok();
         }
+
+        public async Task<JsonResult> NewComment(SocialCommentDTO socialCommentDto)
+        {
+            _socialAPIService.NewComment(socialCommentDto);
+            return Json(new {success=true});
+        }
     }
 }
