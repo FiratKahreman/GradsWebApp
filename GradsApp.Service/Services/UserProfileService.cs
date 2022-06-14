@@ -33,36 +33,10 @@ namespace GradsApp.Service.Services
             _configuration = configuration;
         }
 
-        public async Task<string> Login(LoginDTO loginDTO)
+        public async Task<bool> Login(LoginDTO loginDTO)
         {
             var userResponse = await _userProfileRepository.GetByFilterAsync(x => x.Mail == loginDTO.Mail && x.Password == loginDTO.Password);
-            if (userResponse != null)
-            {
-                string displayName = userResponse.FirstName + userResponse.LastName;
-                var claims = new[] {
-                        new Claim(JwtRegisteredClaimNames.Sub, _configuration["Jwt:Subject"]),
-                        new Claim(JwtRegisteredClaimNames.Jti, Guid.NewGuid().ToString()),
-                        new Claim(JwtRegisteredClaimNames.Iat, DateTime.UtcNow.ToString()),
-                        new Claim("UserId", userResponse.Id.ToString()),
-                        new Claim("DisplayName", userResponse.FirstName.ToString()),
-                        new Claim("UserName", displayName.ToString()),
-                        new Claim("Email", userResponse.Mail.ToString())
-                    };
-
-                var key = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(_configuration["Jwt:Key"]));
-                var signIn = new SigningCredentials(key, SecurityAlgorithms.HmacSha256);
-                var token = new JwtSecurityToken(
-                    _configuration["Jwt:Issuer"],
-                    _configuration["Jwt:Audience"],
-                    claims,
-                    expires: DateTime.UtcNow.AddMinutes(2),
-                    signingCredentials: signIn);
-                return new JwtSecurityTokenHandler().WriteToken(token);
-            }
-            else
-            {
-                return null;
-            }       
+            return userResponse != null? true : false;     
         }
 
         public async Task<UserProfile> SignUp(UserProfile userProfile)

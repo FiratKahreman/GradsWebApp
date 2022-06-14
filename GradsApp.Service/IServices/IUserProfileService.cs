@@ -10,7 +10,7 @@ namespace GradsApp.Service.IServices
 {
     public interface IUserProfileService
     {
-        public Task<string> Login(LoginDTO loginDTO);
+        public Task<bool> Login(LoginDTO loginDTO);
         public Task<UserProfileDTO> GetProfileById(int id);
         public Task<UserProfile> SignUp(UserProfile userProfile);
 

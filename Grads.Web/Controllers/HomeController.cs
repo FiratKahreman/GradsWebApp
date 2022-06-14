@@ -1,4 +1,5 @@
 ﻿using Grads.Web.Models;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using System.Diagnostics;
 
@@ -13,6 +14,7 @@ namespace Grads.Web.Controllers
             _logger = logger;
         }
 
+        
         public IActionResult Index()
         {
             return View();

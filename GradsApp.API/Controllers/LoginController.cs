@@ -34,10 +34,7 @@ namespace GradsApp.API.Controllers
         {
             //var login = _mapper.Map<UserProfile>(loginDTO);
             var response = await _userProfileService.Login(loginDTO);
-            if (response == null)
-            {
-                return BadRequest("Kullanıcı Adı veya Parola Hatalı");
-            }
+            
             return Ok(response);
         }
         //[HttpPost]
