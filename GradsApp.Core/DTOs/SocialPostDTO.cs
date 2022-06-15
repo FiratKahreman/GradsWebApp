@@ -17,5 +17,7 @@ namespace GradsApp.Core.DTOs
         public int Likes { get; set; }
         public int PostProfileId { get; set; }
         public DateTime CreatedDate { get; set; }
+        public ICollection<SocialCommentDTO> PostComments { get; set; }
+
     }
 }

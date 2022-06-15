@@ -35,7 +35,18 @@ namespace GradsApp.Repository.Repositories
                                                                    PostText = b.PostText,
                                                                    PostProfileId = b.PostProfileId,
                                                                    CreatedDate = b.CreatedDate,
-                                                                   PostTitle = b.PostTitle
+                                                                   PostTitle = b.PostTitle,
+                                                                   PostComments = (from c in _appDbContext.SocialComments.Where(x => x.PostId == b.Id)
+                                                                                   select new SocialCommentDTO()
+                                                                                   { 
+                                                                                        FullName = a.FirstName + " " + a.LastName,
+                                                                                        CreatedTime = c.CreatedDate.ToShortDateString(),
+                                                                                        CommentProfileId = c.CommentProfileId,
+                                                                                        CommentText = c.CommentText,
+                                                                                        PostId = b.Id
+                                                                                   }).ToList()
+
+
                                                                    
                                                                }).ToList();
             return socialPost;

@@ -1,5 +1,6 @@
 ﻿@using GradsApp.Core.DTOs
 @model LoginDTO
+
 @{  
     Layout = "";
 }
@@ -21,20 +22,21 @@
 
         @using (Html.BeginForm("LoginPost", "Login", FormMethod.Post))
         {
-        <div class="d-flex align-items-center h-custom-2 px-5 ms-xl-4 mt-5 pt-5 pt-xl-0 mt-xl-n5">
+        
 
           <form style="width: 23rem;">
 
             <h3 class="fw-normal mb-3 pb-3" style="letter-spacing: 1px;">Giriş Yap</h3>
 
+
+            
+
             <div class="form-outline mb-4">
-              @Html.TextBoxFor(x => x.Mail)
-              <label class="form-label" for="form2Example18">Email</label>
+              @Html.TextBoxFor(x => x.Mail, new { @class="form-control form-control-lg", id="form2Example18", placeholder="Email" })
             </div>
 
             <div class="form-outline mb-4">
-              @Html.TextBoxFor(x => x.Password)
-              <label class="form-label" for="form2Example28">Şifre</label>
+              @Html.TextBoxFor(x => x.Password, new { @class="form-control form-control-lg", id="form2Example18", placeholder="Şifre", type="password" })
             </div>
 
             <div class="pt-1 mb-4">
@@ -45,8 +47,6 @@
             <p>Bir hesabın yok mu? <a href="#!" class="link-info">Kayıt Ol</a></p>
 
           </form>
-
-        </div>
         }
 
 

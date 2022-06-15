@@ -1,5 +1,4 @@
-﻿using AutoMapper;
-using GradsApp.Core.DTOs;
+﻿using GradsApp.Core.DTOs;
 using GradsApp.Core.Models;
 using GradsApp.Service.IServices;
 using Microsoft.AspNetCore.Http;
@@ -12,24 +11,20 @@ namespace GradsApp.API.Controllers
     public class LoginController : ControllerBase
     {
         private readonly IUserProfileService _userProfileService;
-        private readonly IMapper _mapper;
 
-        public LoginController(IMapper mapper, IUserProfileService userProfileService)
+        public LoginController(IUserProfileService userProfileService)
         {
-            _mapper = mapper;
             _userProfileService = userProfileService;
         }
 
         [HttpPost]
         public async Task<IActionResult> SignUp(SignUpDTO signUpDTO)
         {
-
-            var user = _mapper.Map<UserProfile>(signUpDTO);
-            await _userProfileService.SignUp(user);
-            return Ok();
+            var response = await _userProfileService.SignUp(signUpDTO);
+            return Ok(response.Id);
         }
 
-        [HttpPost]
+        [HttpPost] 
         public async Task<IActionResult> Login(LoginDTO loginDTO)
         {
             //var login = _mapper.Map<UserProfile>(loginDTO);

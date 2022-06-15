@@ -1,0 +1,93 @@
+﻿@using GradsApp.Core.DTOs
+@model SignUpDTO
+
+@{  
+    Layout = "";
+}
+
+<link rel="stylesheet" href="~/dosyalar/css/bootstrap.min.css" type="text/css"/>
+
+<section class="vh-100">
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-sm-6 text-black">
+
+        <div class="px-5 ms-xl-4">
+          <img class="img-responsive rounded-circle" width="300" height="150" src="~/dosyalar/images/logo/KTÜ Logo 1A.png" />
+          
+          <span class="h1 fw-bold mb-0">Mezun Sistemi</span>
+        </div>
+
+
+
+        @using (Html.BeginForm("SignUp", "Login", FormMethod.Post))
+        {
+
+
+          <form style="width: 23rem;">
+
+            <h3 class="fw-normal mb-3 pb-3" style="letter-spacing: 1px;">Giriş Yap</h3>
+
+
+            
+
+            <div class="form-outline mb-4">
+              @Html.TextBoxFor(x => x.FirstName, new { @class="form-control form-control-lg", id="form2Example18", placeholder="İsim" })
+            </div>
+
+            <div class="form-outline mb-4">
+              @Html.TextBoxFor(x => x.LastName, new { @class="form-control form-control-lg", id="form2Example18", placeholder="Soyisim" })
+            </div>
+            <div class="form-outline mb-4">
+              @Html.TextBoxFor(x => x.Mail, new { @class="form-control form-control-lg", id="form2Example18", placeholder="Email" })
+            </div>
+
+            <div class="form-outline mb-4">
+              @Html.TextBoxFor(x => x.Password, new { @class="form-control form-control-lg", id="form2Example18", placeholder="Şifre", type="password" })
+            </div>
+            @*<div class="form-outline mb-4">
+              @Html.CheckBoxFor(x => x.IsGrad, new { @class="form-control form-control-lg", id="form2Example18" })
+            </div>*@
+
+            <div class="form-outline mb-4">
+              @Html.TextBoxFor(x => x.Phone, new { @class="form-control form-control-lg", id="form2Example18", placeholder="05xxxxxxxxx" })
+            </div>
+
+            <div class="form-outline mb-4">
+              @Html.TextBoxFor(x => x.GraduationDate, new { @class="form-control form-control-lg", id="form2Example18", placeholder="Mezuniyet Tarihi YYYY-AA-GG" })
+            </div>
+
+            <div class="form-outline mb-4">
+              @Html.TextBoxFor(x => x.GradType, new { @class="form-control form-control-lg", id="form2Example18" })
+            </div>
+            @*<div class="form-outline mb-4">
+              @Html.CheckBoxFor(x => x.IsWorking, new { @class="form-control form-control-lg", id="form2Example18" })
+            </div>*@
+
+            @*<div class="form-outline mb-4">
+              @Html.CheckBoxFor(x => x.GotCard, new { @class="form-control form-control-lg", id="form2Example18" })
+            </div>*@
+
+            <div class="pt-1 mb-4">
+              <input class="btn btn-info btn-lg btn-block" type="submit" value="Giriş" />
+            </div>
+
+            <p class="small mb-5 pb-lg-2"><a class="text-muted" href="#!">Geri Dön</a></p>
+
+          </form>
+        }
+
+
+
+      </div>
+      <div class="col-sm-6 px-0 d-none d-sm-block">
+        <img src="~/dosyalar/images/13590273.jpg"
+          alt="Login image" class="w-100 vh-100" style="object-fit: cover; object-position: left;">
+      </div>
+    </div>
+  </div>
+</section>
+
+<script src="~/dosyalar/js/jquery.min.js"></script>
+    <script src="~/dosyalar/js/popper.min.js"></script>
+    <script src="~/dosyalar/js/bootstrap.min.js"></script>

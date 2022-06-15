@@ -9,6 +9,7 @@ namespace GradsApp.Service.IServices
 {
     public interface ICardService
     {
-        public Task<CardDTO> GetCardById(int id);
+        Task<CardDTO> GetCardById(int id);
+        Task<string> NewCard(NewCardDTO newCardDTO);
     }
 }

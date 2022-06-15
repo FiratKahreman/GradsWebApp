@@ -59,5 +59,15 @@ namespace Grads.Web.Controllers
             else 
                 return RedirectToAction("Index", "Social");
         }
+
+        public async Task<IActionResult> SignUpForm()
+        {
+            return View();
+        }
+        public async Task<IActionResult> SignUp(SignUpDTO signUpDto)
+        {
+            var response = await _loginAPIService.SignUp(signUpDto);
+            return RedirectToAction("Index", "Login");            
+        }
     }
 }

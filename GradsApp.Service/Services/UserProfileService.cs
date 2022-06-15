@@ -38,13 +38,6 @@ namespace GradsApp.Service.Services
             var userResponse = await _userProfileRepository.GetByFilterAsync(x => x.Mail == loginDTO.Mail && x.Password == loginDTO.Password);
             return userResponse != null? true : false;     
         }
-
-        public async Task<UserProfile> SignUp(UserProfile userProfile)
-        {
-            await _userProfileRepository.CreateAsync(userProfile);
-            await _unitOfWork.CommitAsync();
-            return userProfile;
-        }
         public async Task<UserProfileDTO> GetProfileById(int id)
         {
             var userResponse = await _userProfileRepository.GetByFilterAsync(x => x.Id == id);
@@ -53,6 +46,14 @@ namespace GradsApp.Service.Services
             Console.WriteLine(userDto.FirstName);
             return userDto;
 
+        }
+
+        public async Task<UserProfile> SignUp(SignUpDTO signUpDto)
+        {
+            var user = _mapper.Map<UserProfile>(signUpDto);
+            await _userProfileRepository.CreateAsync(user);
+            await _unitOfWork.CommitAsync();
+            return user;
         }
     }
 }

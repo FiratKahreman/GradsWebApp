@@ -14,11 +14,11 @@ namespace GradsApp.Core.DTOs
         public bool IsGrad { get; set; }
         public string Phone { get; set; }
         public string Mail { get; set; }
-        public int PictureId { get; set; } = 1;
+        public int? PictureId { get; set; } = 1;
         public DateTime? GraduationDate { get; set; }
         public bool IsWorking { get; set; }
         public bool GotCard { get; set; }
         public string GradType { get; set; }
-        public int? CardId { get; set; } = null;
+        public int? CardId { get; set; }
     }
 }
