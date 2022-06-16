@@ -39,7 +39,7 @@ namespace GradsApp.Repository.Repositories
                                                                    PostComments = (from c in _appDbContext.SocialComments.Where(x => x.PostId == b.Id)
                                                                                    select new SocialCommentDTO()
                                                                                    { 
-                                                                                        FullName = a.FirstName + " " + a.LastName,
+                                                                                        FullName = c.CommentProfile.FirstName + " " + c.CommentProfile.LastName,
                                                                                         CreatedTime = c.CreatedDate.ToShortDateString(),
                                                                                         CommentProfileId = c.CommentProfileId,
                                                                                         CommentText = c.CommentText,
@@ -53,5 +53,6 @@ namespace GradsApp.Repository.Repositories
                                                                .ToList();
             return socialPost;
         }
+
     }
 }

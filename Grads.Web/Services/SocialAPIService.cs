@@ -26,5 +26,11 @@ namespace Grads.Web.Services
         {
             var response = await _httpClient.PostAsJsonAsync<CreateCommentDTO>("Social/NewComment", createCommentDTO);
         }
+
+        public async Task<string> AddLike(int id)
+        {
+            var response = await _httpClient.PostAsJsonAsync("Social/AddLike", id);
+            return await response.Content.ReadAsStringAsync();
+        }
     }
 }

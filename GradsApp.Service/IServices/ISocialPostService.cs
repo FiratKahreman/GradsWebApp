@@ -12,5 +12,6 @@ namespace GradsApp.Service.IServices
     {
         public Task<List<SocialPostDTO>> GetAllPosts();
         public Task<SocialPost> CreatePost(SocialPost post);
+        public Task<int> AddLike(int id);
     }
 }

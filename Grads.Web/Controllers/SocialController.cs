@@ -39,5 +39,11 @@ namespace Grads.Web.Controllers
             return RedirectToAction("Index", "Social");
         }
 
+        public async Task<IActionResult> Like(int id)
+        {
+            var response = await _socialAPIService.AddLike(id);
+            return RedirectToAction("Index", "Social");
+        }
+
     }
 }

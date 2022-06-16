@@ -54,5 +54,12 @@ namespace GradsApp.API.Controllers
             
             return Ok();
         }
+
+        [HttpPost]
+        public async Task<IActionResult> AddLike(int id)
+        {
+            var response = await _socialPostService.AddLike(id);
+            return Ok(response);
+        }
     }
 }

@@ -28,7 +28,7 @@ namespace GradsApp.Service.Services
         public async Task<CardDTO> GetCardById(int id)
         {
             var userResponse = await _cardRepository.GetByFilterAsync(x => x.CardProfileId == id);
-            return _mapper.Map<CardDTO>(userResponse);
+            return userResponse != null ? _mapper.Map<CardDTO>(userResponse) : null;
         }
 
         public async Task<string> NewCard(NewCardDTO newCardDTO)

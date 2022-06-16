@@ -14,7 +14,7 @@ namespace Grads.Web.Services
         public async Task<CardDTO> GetCard(int id)
         {
             var card = await _httpClient.GetFromJsonAsync<CardDTO>($"Card/GetCard/{id}");
-            return card;
+            return card??null;
         }
     }
 }

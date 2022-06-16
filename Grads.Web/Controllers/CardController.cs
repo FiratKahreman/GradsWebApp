@@ -15,7 +15,10 @@ namespace Grads.Web.Controllers
         public async Task<IActionResult> Index(int id)
         {
             var response = await _cardAPIService.GetCard(id);
-
+            if (response == null)
+            {
+                return RedirectToAction("Index", "Social");
+            }
             return View(response);
         }
     }

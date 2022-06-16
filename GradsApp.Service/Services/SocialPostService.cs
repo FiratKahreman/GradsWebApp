@@ -35,5 +35,14 @@ namespace GradsApp.Service.Services
         {
             return await _socialPostRepository.GetAllPosts();
         }
+
+        public async Task<int> AddLike(int id)
+        {
+            var post = await _socialPostRepository.GetByIdAsync(id);
+            
+            await _socialPostRepository.UpdateAsync(post);
+            await _unitOfWork.CommitAsync();
+            return post.Likes;
+        }
     }
 }
