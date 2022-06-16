@@ -32,10 +32,11 @@ namespace Grads.Web.Controllers
             return RedirectToAction("Index", "Social");
         }
 
-        public async Task<JsonResult> NewComment(SocialCommentDTO socialCommentDto)
+        public async Task<IActionResult> NewComment(int loginId, string comment, int postId)
         {
-            _socialAPIService.NewComment(socialCommentDto);
-            return Json(new {success=true});
+            var newCommentDto = new CreateCommentDTO() { CommentProfileId = loginId, PostId = postId, CommentText = comment };
+            _socialAPIService.NewComment(newCommentDto);
+            return RedirectToAction("Index", "Social");
         }
 
     }

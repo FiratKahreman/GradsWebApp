@@ -8,6 +8,8 @@ namespace GradsApp.Core.DTOs
 {
     public class CreateCommentDTO
     {
-
+        public string CommentText { get; set; }
+        public int PostId { get; set; }
+        public int CommentProfileId { get; set; }
     }
 }

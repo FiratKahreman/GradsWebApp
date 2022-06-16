@@ -22,11 +22,11 @@ namespace GradsApp.Service.Services
             _unitOfWork = unitOfWork;
         }
 
-        public Task CreateComment(SocialComment comment)
+        public async Task<SocialComment> CreateComment(SocialComment comment)
         {
-            _socialCommentRepository.CreateAsync(comment);
-            _unitOfWork.Commit();
-            return Task.CompletedTask;
+            await _socialCommentRepository.CreateAsync(comment);
+            await _unitOfWork.CommitAsync();
+            return comment;
         }
 
         public async Task<List<SocialCommentDTO>> GetCommentByPost(int postId)

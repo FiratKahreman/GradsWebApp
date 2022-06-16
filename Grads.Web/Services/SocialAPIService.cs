@@ -14,9 +14,7 @@ namespace Grads.Web.Services
 
         public async Task<List<SocialPostDTO>> GetPosts()
         {
-            var context = new SocialModel();
             var posts = await _httpClient.GetFromJsonAsync<List<SocialPostDTO>>("Social/GetPosts");
-            context.SocialPostDTOs = posts;
             return posts;
         }
         public async void NewPost(CreatePostDTO createPostDTO)
@@ -24,9 +22,9 @@ namespace Grads.Web.Services
             var response = await _httpClient.PostAsJsonAsync<CreatePostDTO>("Social/NewPost", createPostDTO);
         }
 
-        public async void NewComment(SocialCommentDTO socialCommentDTO)
+        public async void NewComment(CreateCommentDTO createCommentDTO)
         {
-            var response = await _httpClient.PostAsJsonAsync<SocialCommentDTO>("Social/NewComment", socialCommentDTO);
+            var response = await _httpClient.PostAsJsonAsync<CreateCommentDTO>("Social/NewComment", createCommentDTO);
         }
     }
 }

@@ -11,6 +11,6 @@ namespace GradsApp.Service.IServices
     public interface ISocialCommentService
     {
         public Task<List<SocialCommentDTO>> GetCommentByPost(int postId);
-        public Task CreateComment(SocialComment comment);
+        public Task<SocialComment> CreateComment(SocialComment comment);
     }
 }

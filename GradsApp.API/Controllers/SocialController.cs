@@ -37,10 +37,10 @@ namespace GradsApp.API.Controllers
             return Ok(list);
         }
         [HttpPost]
-        public async Task<IActionResult> NewComment(SocialCommentDTO socialCommentDTO)
+        public async Task<IActionResult> NewComment(CreateCommentDTO createCommentDTO)
         {
 
-            var comment = _mapper.Map<SocialComment>(socialCommentDTO);
+            var comment = _mapper.Map<SocialComment>(createCommentDTO);
             await _socialCommentService.CreateComment(comment);
             return Ok();
         }

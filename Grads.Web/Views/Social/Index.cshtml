@@ -116,16 +116,11 @@
                 </div>
                 
              }
-             @using (Html.BeginForm("CreatePost", "Social", FormMethod.Post))
+             @using (Html.BeginForm("NewComment", "Social", FormMethod.Post))
              {
-                 
-                 
-                                    <input type="text" class="form-control" name="title" rows="1" placeholder="Konu" />
-                                    <input type="text" class="form-control" name="message" rows="3" placeholder="Bir gönderi yaz..." />
-
-
              <div class="bg-light p-2">
                  <input style="display:none;" type="text" class="form-control" name="loginId" rows="1" value="@Context.Session.GetInt32("loginId")" />
+                 <input style="display:none;" type="text" class="form-control" name="postId" rows="1" value="@item.SocialPostId" />
                     <div class="d-flex flex-row align-items-start"><img class="rounded-circle" src="~/dosyalar/images/blank.png" width="40"><input type="text" class="form-control" name="comment" rows="1" placeholder="Yorum Yaz..." /></div>
                     <div class="mt-2 text-right"><button class="btn btn-primary btn-sm shadow-none" type="submit">Yorum Yap</button></div>
                 </div>
