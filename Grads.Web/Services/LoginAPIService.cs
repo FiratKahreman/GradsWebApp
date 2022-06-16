@@ -1,4 +1,5 @@
 ﻿using GradsApp.Core.DTOs;
+using GradsApp.Core.Models;
 using System.Net.Http.Json;
 
 namespace Grads.Web.Services
@@ -12,14 +13,13 @@ namespace Grads.Web.Services
             _httpClient = httpClient;
         }
 
-        public async Task<bool> UserIsValid(LoginDTO loginDto)
-        {
-            var isValid = _httpClient.PostAsJsonAsync($"Login/Login", loginDto);
-            var response = await isValid.Result.Content.ReadAsStringAsync();
-            if(response == "true")
-                return true;
 
-            return false;
+        public async Task<UserProfile> UserIsValid(LoginDTO loginDto)
+        {
+            var isValid = await _httpClient.PostAsJsonAsync($"Login/Login", loginDto);
+            var response = await isValid.Content.ReadFromJsonAsync<UserProfile>();
+            
+            return response??null;
         }
 
         public async Task<string> SignUp(SignUpDTO signUpDto)

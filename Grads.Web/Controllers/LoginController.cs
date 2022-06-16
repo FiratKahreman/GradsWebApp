@@ -1,16 +1,19 @@
 ﻿using Grads.Web.Services;
 using GradsApp.Core.DTOs;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Session;
 
 namespace Grads.Web.Controllers
 {
     public class LoginController : Controller
     {
         private readonly LoginAPIService _loginAPIService;
-
-        public LoginController(LoginAPIService loginAPIService)
+        private readonly IHttpContextAccessor _contextAccessor;
+        public LoginController(LoginAPIService loginAPIService, IHttpContextAccessor contextAccessor)
         {
             _loginAPIService = loginAPIService;
+            _contextAccessor = contextAccessor;
         }
 
         public async Task<IActionResult> Index()
@@ -53,11 +56,20 @@ namespace Grads.Web.Controllers
 
         public async Task<IActionResult> LoginPost(LoginDTO loginDto)
         {
+            HttpContext httpContext = _contextAccessor.HttpContext;
             var response = await _loginAPIService.UserIsValid(loginDto);
-            if (response == false)
+            if (response == null)
                 return RedirectToAction("Index", "Login");
             else 
+            {
+                httpContext.Session.SetString("name", response.FirstName);
+                httpContext.Session.SetString("surname", response.LastName);
+                httpContext.Session.SetInt32("loginId", response.Id);
+                httpContext.Session.SetString("mail", response.Mail);
+                httpContext.Session.SetString("isGrad", response.IsGrad.ToString());
                 return RedirectToAction("Index", "Social");
+            }
+                
         }
 
         public async Task<IActionResult> SignUpForm()

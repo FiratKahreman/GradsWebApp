@@ -48,7 +48,9 @@ namespace GradsApp.Repository.Repositories
 
 
                                                                    
-                                                               }).ToList();
+                                                               })
+                                                               .OrderByDescending(x => x.CreatedDate)
+                                                               .ToList();
             return socialPost;
         }
     }

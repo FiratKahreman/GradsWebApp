@@ -33,10 +33,10 @@ namespace GradsApp.Service.Services
             _configuration = configuration;
         }
 
-        public async Task<bool> Login(LoginDTO loginDTO)
+        public async Task<UserProfile> Login(LoginDTO loginDTO)
         {
             var userResponse = await _userProfileRepository.GetByFilterAsync(x => x.Mail == loginDTO.Mail && x.Password == loginDTO.Password);
-            return userResponse != null? true : false;     
+            return userResponse;     
         }
         public async Task<UserProfileDTO> GetProfileById(int id)
         {

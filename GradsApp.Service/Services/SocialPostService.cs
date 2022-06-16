@@ -1,4 +1,5 @@
-﻿using GradsApp.Core.DTOs;
+﻿using AutoMapper;
+using GradsApp.Core.DTOs;
 using GradsApp.Core.Models;
 using GradsApp.Repository.IRepositories;
 using GradsApp.Repository.IUnitOfWorks;
@@ -15,6 +16,7 @@ namespace GradsApp.Service.Services
     {
         private readonly ISocialPostRepository _socialPostRepository;
         private readonly IUnitOfWork _unitOfWork;
+        private readonly IMapper _mapper;
 
         public SocialPostService(ISocialPostRepository socialPostRepository, IUnitOfWork unitOfWork)
         {
@@ -22,11 +24,11 @@ namespace GradsApp.Service.Services
             _unitOfWork = unitOfWork;
         }
 
-        public async Task<SocialPost> CreatePost(SocialPost post)
+        public async Task<SocialPost> CreatePost(SocialPost socialPost)
         {
-            await _socialPostRepository.CreateAsync(post);
+            await _socialPostRepository.CreateAsync(socialPost);
             await _unitOfWork.CommitAsync();
-            return post;
+            return socialPost;
         }
 
         public async Task<List<SocialPostDTO>> GetAllPosts()

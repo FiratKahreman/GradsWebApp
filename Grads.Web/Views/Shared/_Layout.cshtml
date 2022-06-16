@@ -1,4 +1,4 @@
-﻿
+﻿@using Microsoft.AspNetCore.Http
 <!DOCTYPE html>
 
 <html>
@@ -42,8 +42,8 @@
                     <ul class="list-unstyled components">
                         <li><a href="~/Social/Index"><i class="fa fa-paper-plane white_color"></i> <span>Sosyal</span></a></li>
                         <li><a href="~/Map/Index"><i class="fa fa-map white_color"></i> <span>Harita</span></a></li>
-                        <li><a href="~/Card/Index/1"><i class="fa fa-credit-card white_color"></i> <span>Mezun Kart</span></a></li>                                                                                     
-                        <li><a href="~/Profile/Index/1"><i class="fa fa-cog white_color"></i> <span>Profil</span></a></li>
+                        <li><a href="~/Card/Index/@Context.Session.GetInt32("loginId")"><i class="fa fa-credit-card white_color"></i> <span>Mezun Kart</span></a></li>                                                                                     
+                        <li><a href="~/Profile/Index/@Context.Session.GetInt32("loginId")"><i class="fa fa-cog white_color"></i> <span>Profil</span></a></li>
                     </ul>
                 </div>
             </nav>
@@ -61,7 +61,7 @@
                                 <div class="icon_info">                                    
                                     <ul class="user_profile_dd">
                                         <li>
-                                            <a class="dropdown-toggle" data-toggle="dropdown"><img class="img-responsive rounded-circle" src="~/dosyalar/images/layout_img/user_img.jpg" alt="#" /><span class="name_user">Zafer Yavuz</span></a>
+                                            <a class="dropdown-toggle" data-toggle="dropdown"><img class="img-responsive rounded-circle" src="~/dosyalar/images/blank.png" alt="#" /><span class="name_user">@Context.Session.GetString("name") @Context.Session.GetString("surname")</span></a>
                                             <div class="dropdown-menu">
                                                 <a class="dropdown-item" href="~/Profile/Index/1">Profilim</a>
                                                 <a class="dropdown-item" href="#">Yardım</a>

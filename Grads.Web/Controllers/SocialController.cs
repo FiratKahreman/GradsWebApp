@@ -8,10 +8,12 @@ namespace Grads.Web.Controllers
     public class SocialController : Controller
     {
         private readonly SocialAPIService _socialAPIService;
+        private readonly IHttpContextAccessor _contextAccessor;
 
-        public SocialController(SocialAPIService socialAPIService)
+        public SocialController(SocialAPIService socialAPIService, IHttpContextAccessor contextAccessor)
         {
             _socialAPIService = socialAPIService;
+            _contextAccessor = contextAccessor;
         }
 
         public async Task<IActionResult> Index()
@@ -20,10 +22,14 @@ namespace Grads.Web.Controllers
             return View(posts);
         }
 
-        public async Task<IActionResult> NewPost(CreatePostDTO createPostDto)
+        public async Task<IActionResult> CreatePost(string title, string message,int loginId)
         {
-            _socialAPIService.NewPost(createPostDto);
-            return Ok();
+            var postText = message;
+            var postTitle = title;
+            
+            var newPostDto = new CreatePostDTO() { Likes = 0 , PostText = postText, PostTitle = postTitle, PostProfileId = loginId };
+            _socialAPIService.NewPost(newPostDto);
+            return RedirectToAction("Index", "Social");
         }
 
         public async Task<JsonResult> NewComment(SocialCommentDTO socialCommentDto)
@@ -31,5 +37,6 @@ namespace Grads.Web.Controllers
             _socialAPIService.NewComment(socialCommentDto);
             return Json(new {success=true});
         }
+
     }
 }

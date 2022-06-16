@@ -46,9 +46,9 @@ namespace GradsApp.API.Controllers
         }
 
         [HttpPost]
-        public async Task<IActionResult> NewPost(CreatePostDTO createPostDto)
+        public async Task<IActionResult> NewPost(CreatePostDTO createPostDTO)
         {
-            var post = _mapper.Map<SocialPost>(createPostDto);
+            var post = _mapper.Map<SocialPost>(createPostDTO);
 
             await _socialPostService.CreatePost(post);
             
