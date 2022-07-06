@@ -1,5 +1,6 @@
 ﻿using Grads.Web.Models;
 using GradsApp.Core.DTOs;
+using GradsApp.Service.IServices;
 using Newtonsoft.Json;
 
 namespace Grads.Web.Services
@@ -7,14 +8,17 @@ namespace Grads.Web.Services
     public class SocialAPIService
     {
         private readonly HttpClient _httpClient;
-        public SocialAPIService(HttpClient httpClient)
+        private readonly ISocialPostService _service;
+        public SocialAPIService(HttpClient httpClient, ISocialPostService service)
         {
             _httpClient = httpClient;
+            _service = service;
         }
 
         public async Task<List<SocialPostDTO>> GetPosts()
         {
             var posts = await _httpClient.GetFromJsonAsync<List<SocialPostDTO>>("Social/GetPosts");
+            
             return posts;
         }
         public async void NewPost(CreatePostDTO createPostDTO)

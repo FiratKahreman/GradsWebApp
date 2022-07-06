@@ -46,7 +46,7 @@
               @Html.TextBoxFor(x => x.Password, new { @class="form-control form-control-lg", id="form2Example18", placeholder="Şifre", type="password" })
             </div>
             <div class="form-outline mb-4">
-              @Html.CheckBoxFor(x => x.IsGrad, new { @class="form-control form-control-lg", id="form2Example18" })
+              <p>Mezun musunuz?</p>@Html.CheckBoxFor(x => x.IsGrad, new { @class="form-control form-control-lg", id="form2Example18" })
             </div>
 
             <div class="form-outline mb-4">
@@ -61,11 +61,11 @@
               @Html.TextBoxFor(x => x.GradType, new { @class="form-control form-control-lg", id="form2Example18" })
             </div>
             <div class="form-outline mb-4">
-              @Html.CheckBoxFor(x => x.IsWorking, new { @class="form-control form-control-lg", id="form2Example18" })
+              <p>Çalışıyor musunuz?</p>@Html.CheckBoxFor(x => x.IsWorking, new { @class="form-control form-control-lg", id="form2Example18" })
             </div>
 
             <div class="form-outline mb-4">
-              @Html.CheckBoxFor(x => x.GotCard, new { @class="form-control form-control-lg", id="form2Example18" })
+              <p>Kart istiyor musunuz?</p>@Html.CheckBoxFor(x => x.GotCard, new { @class="form-control form-control-lg", id="form2Example18" })
             </div>
 
             <div class="pt-1 mb-4">
